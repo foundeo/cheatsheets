@@ -155,7 +155,7 @@ try {
 
 	<div class="row">
 		<div class="col-sm-6">
-			<h4>FOR IN Loop</h4>
+			<h4>FOR IN Loop (Structure)</h4>
 <pre>
 struct = StructNew();
 struct.one = "1";
@@ -173,6 +173,31 @@ for (key in struct) {
 	that can span
 	multiple lines
 */
+</pre>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<h4>FOR IN Loop (Array) <div class="pull-right"><div class="label label-info">CF9.0.1+</div></div></h4>
+<pre>
+cars = ["Ford","Dodge"];
+for (car in cars) {
+	WriteOutput(car);
+}
+//OUTPUTS FordDodge
+</pre>
+		</div>
+		<div class="col-sm-6">
+			<h4>FOR IN Loop (Query) <div class="pull-right"><div class="label label-info">CF10+</div></div></h4>
+<pre>
+cars = QueryNew("make,model",
+	"cf_sql_varchar,cf_sql_varchar",
+	[["Ford", "T"],["Dodge","30"]]);
+for (car in cars) {
+	WriteOutput("Model " & car.model);
+}
+//OUTPUTS Model TModel 30
 </pre>
 		</div>
 	</div>
